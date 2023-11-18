@@ -20,7 +20,7 @@ public class Camisa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String tamanho;
-	private String cpr;
+	private String cor;
 	private String estampa;
 
 	private int id_modelo;
@@ -33,11 +33,11 @@ public class Camisa {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Camisa(Integer id, String tamanho, String cpr, String estampa, int id_modelo) {
+	public Camisa(Integer id, String tamanho, String cor, String estampa, int id_modelo) {
 		super();
 		this.id = id;
 		this.tamanho = tamanho;
-		this.cpr = cpr;
+		this.cor = cor;
 		this.estampa = estampa;
 		this.id_modelo = id_modelo;
 	}
@@ -58,12 +58,12 @@ public class Camisa {
 		this.tamanho = tamanho;
 	}
 
-	public String getCpr() {
-		return cpr;
+	public String getCor() {
+		return cor;
 	}
 
-	public void setCpr(String cpr) {
-		this.cpr = cpr;
+	public void setCor(String cor) {
+		this.cor = cor;
 	}
 
 	public String getEstampa() {
