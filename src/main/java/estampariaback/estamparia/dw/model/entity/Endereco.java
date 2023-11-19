@@ -1,6 +1,9 @@
 package estampariaback.estamparia.dw.model.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +11,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "endereco")
 @NoArgsConstructor
 public class Endereco {
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String rua;
 	private String bairro;
 	private String cidade;
@@ -22,7 +27,7 @@ public class Endereco {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Endereco(int id, String rua, String bairro, String cidade, String estado, String cep, String numero,
+	public Endereco(Integer id, String rua, String bairro, String cidade, String estado, String cep, String numero,
 			String complemento) {
 		super();
 		this.id = id;
@@ -35,11 +40,11 @@ public class Endereco {
 		this.complemento = complemento;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

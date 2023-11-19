@@ -23,7 +23,7 @@ public class Camisa {
 	private String cor;
 	private String estampa;
 
-	private int id_modelo;
+	private Integer id_modelo;
 
 	//@JsonBackReference
 	//@OneToMany(mappedBy = "camisa")

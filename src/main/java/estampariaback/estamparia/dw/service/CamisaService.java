@@ -1,13 +1,17 @@
 package estampariaback.estamparia.dw.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Camisa;
 import estampariaback.estamparia.dw.repository.CamisaRepository;
 
+@Service
 public class CamisaService {
-
+	
 	@Autowired
 	private CamisaRepository camisaRepository;
 	
@@ -32,5 +36,19 @@ public class CamisaService {
 			return "Informe o " + nomeCampo + " \n";
 		}
 		return "";
+	}
+
+	public boolean excluir(Integer id) {
+		camisaRepository.deleteById(id.longValue());
+		return true;
+	}
+
+	public List<Camisa> listarTodos() {
+		return camisaRepository.findAll();
+	}
+
+	public Camisa atualizar(Camisa produtoParaAtualizar) throws CampoInvalidoException {
+		validarCamposObrigatorios(produtoParaAtualizar);
+		return camisaRepository.save(produtoParaAtualizar);
 	}
 }

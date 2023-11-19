@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
-import estampariaback.estamparia.dw.model.entity.Camisa;
+import estampariaback.estamparia.dw.model.entity.Endereco;
 
 @Repository
-public interface CamisaRepository extends JpaRepository<Camisa, Long>, JpaSpecificationExecutor<Camisa> {
-	List<Camisa> findAllByEstampaLike(String nomeInformado);
+public interface EnderecoRepository extends JpaRepository<Endereco, Long>, JpaSpecificationExecutor<Endereco> {
+	List<Endereco> findAllByidLike(Integer id);
 }
