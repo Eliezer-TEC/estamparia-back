@@ -27,7 +27,7 @@ public class PessoaController {
         return pessoaService.excluir(id);
     }
 
-    @PutMapping()
+    @PutMapping("/atualizar")
     public boolean atualizar(@RequestBody Pessoa pessoaParaAtualizar) throws CampoInvalidoException {
         return pessoaService.atualizar(pessoaParaAtualizar) != null;
     }

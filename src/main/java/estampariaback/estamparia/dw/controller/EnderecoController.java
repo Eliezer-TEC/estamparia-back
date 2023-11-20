@@ -38,7 +38,7 @@ public class EnderecoController {
 		}
 		
 		//Atualizar
-		@PutMapping()
+		@PutMapping("/atualizar")
 		public boolean atualizar(@RequestBody Endereco enderecoParaAtualizar) 
 				throws CampoInvalidoException {
 			return enderecoService.atualizar(enderecoParaAtualizar) != null;

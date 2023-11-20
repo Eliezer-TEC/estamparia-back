@@ -38,7 +38,7 @@ public class CamisaController {
 	}
 	
 	//Atualizar
-	@PutMapping()
+	@PutMapping("/atualizar")
 	public boolean atualizar(@RequestBody Camisa produtoParaAtualizar) 
 			throws CampoInvalidoException {
 		return camisaService.atualizar(produtoParaAtualizar) != null;

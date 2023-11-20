@@ -27,7 +27,7 @@ public class PedidoController {
         return pedidoService.excluir(id);
     }
 
-    @PutMapping()
+    @PutMapping("/atualizar")
     public boolean atualizar(@RequestBody Pedido pedidoParaAtualizar) throws CampoInvalidoException {
         return pedidoService.atualizar(pedidoParaAtualizar) != null;
     }

@@ -35,7 +35,7 @@ public class ModeloController {
         return modeloService.excluir(id);
     }
 
-    @PutMapping()
+    @PutMapping("/atualizar")
     public boolean atualizar(@RequestBody Modelo modeloParaAtualizar) throws CampoInvalidoException {
         return modeloService.atualizar(modeloParaAtualizar) != null;
     }
