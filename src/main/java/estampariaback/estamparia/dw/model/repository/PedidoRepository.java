@@ -1,4 +1,4 @@
-package estampariaback.estamparia.dw.repository;
+package estampariaback.estamparia.dw.model.repository;
 
 import java.util.List;
 
