@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Pedido;
-import estampariaback.estamparia.dw.repository.PedidoRepository;
+import estampariaback.estamparia.dw.model.repository.PedidoRepository;
 
 @Service
 public class PedidoService {
