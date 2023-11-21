@@ -43,21 +43,35 @@ public class CamisaController {
 	// Delete de camisas
 	@DeleteMapping("/{id}")
 	public boolean excluir(@PathVariable Integer id) {
-		return camisaService.excluir(id);
+	    Camisa camisaExistente = camisaService.buscarPorId(id);
+	    if(camisaExistente != null) {
+	    	return	camisaService.excluir(id);
+	    }
+		return false;
+
 	}
 
 	// Atualizar
 	@PutMapping("/atualizar")
 	public boolean atualizar(Camisa produtoParaAtualizar, @RequestParam("foto") MultipartFile foto)
-			throws CampoInvalidoException {
-		try {
-			produtoParaAtualizar.setEstampa(foto.getBytes());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return camisaService.atualizar(produtoParaAtualizar) != null;
+	        throws CampoInvalidoException {
+	    // Verificar se a camisa com o ID fornecido existe no banco de dados
+	    Camisa camisaExistente = camisaService.buscarPorId(produtoParaAtualizar.getId());
+
+	    if (camisaExistente != null) {
+	        try {
+	            produtoParaAtualizar.setEstampa(foto.getBytes());
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	        return camisaService.atualizar(produtoParaAtualizar) != null;
+	    } else {
+	       
+	        return false;
+	    }
 	}
+
+
 
 	// listar todos
 	@GetMapping(path = "/todos")

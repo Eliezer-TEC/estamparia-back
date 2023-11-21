@@ -1,6 +1,8 @@
 package estampariaback.estamparia.dw.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +13,10 @@ import estampariaback.estamparia.dw.model.repository.CamisaRepository;
 
 @Service
 public class CamisaService {
-	
+
 	@Autowired
 	private CamisaRepository camisaRepository;
-	
+
 	public Camisa inserir(Camisa novaCamisa) throws CampoInvalidoException {
 		validarCamposObrigatorios(novaCamisa);
 		return camisaRepository.save(novaCamisa);
@@ -22,16 +24,16 @@ public class CamisaService {
 
 	private void validarCamposObrigatorios(Camisa novaCamisa) throws CampoInvalidoException {
 		String mensagemValidacao = "";
-		
+
 		mensagemValidacao += validarCamposObrigatorios(novaCamisa.getCor(), "cor");
 		mensagemValidacao += validarCamposObrigatorios(novaCamisa.getTamanho(), "Tamanho");
-		if(!mensagemValidacao.isEmpty()) {
+		if (!mensagemValidacao.isEmpty()) {
 			throw new CampoInvalidoException(mensagemValidacao);
 		}
 	}
 
 	private String validarCamposObrigatorios(String valorCampo, String nomeCampo) {
-		if(valorCampo == null || valorCampo.trim().isEmpty()) {
+		if (valorCampo == null || valorCampo.trim().isEmpty()) {
 			return "Informe o " + nomeCampo + " \n";
 		}
 		return "";
@@ -39,6 +41,7 @@ public class CamisaService {
 
 	public boolean excluir(Integer id) {
 		camisaRepository.deleteById(id.longValue());
+		
 		return true;
 	}
 
@@ -48,6 +51,18 @@ public class CamisaService {
 
 	public Camisa atualizar(Camisa produtoParaAtualizar) throws CampoInvalidoException {
 		validarCamposObrigatorios(produtoParaAtualizar);
+		
 		return camisaRepository.save(produtoParaAtualizar);
 	}
+
+	 public Camisa buscarPorId(Integer id) {
+	        Optional<Camisa> camisaOptional = camisaRepository.findById(id.longValue());
+	        
+	        // Verificar se a camisa com o ID fornecido existe
+	        if (camisaOptional.isPresent()) {
+	            return camisaOptional.get();
+	        } else {
+	        	 throw new NoSuchElementException("ID não encontrado: " + id);
+	        }
+	    }
 }
