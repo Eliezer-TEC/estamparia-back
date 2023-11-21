@@ -2,18 +2,17 @@ package estampariaback.estamparia.dw.model.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "modelo")
 @NoArgsConstructor
-
 public class Modelo {
 
 	@Id
@@ -21,14 +20,14 @@ public class Modelo {
 	private Integer id;
 	private Double valorVenda;
 	private Double custo;
+	
+	@Column(name = "DT_CADASTRO")
 	private LocalDate dataCadastro;
+	@Column(name = "DT_FIM_VIGENCIA")
 	private LocalDate dataFimVigencia;
-
-	// @OneToMany(mappedBy = "modelo")
 
 	public Modelo() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Modelo(Integer id, Double valorVenda, Double custo, LocalDate dataCadastro, LocalDate dataFimVigencia) {
@@ -79,5 +78,4 @@ public class Modelo {
 	public void setDataFimVigencia(LocalDate dataFimVigencia) {
 		this.dataFimVigencia = dataFimVigencia;
 	}
-
 }

@@ -24,7 +24,6 @@ public class CamisaService {
 		String mensagemValidacao = "";
 		
 		mensagemValidacao += validarCamposObrigatorios(novaCamisa.getCor(), "cor");
-		mensagemValidacao += validarCamposObrigatorios(novaCamisa.getEstampa(), "Estampa");
 		mensagemValidacao += validarCamposObrigatorios(novaCamisa.getTamanho(), "Tamanho");
 		if(!mensagemValidacao.isEmpty()) {
 			throw new CampoInvalidoException(mensagemValidacao);

@@ -21,7 +21,7 @@ public class Camisa {
 	private Integer id;
 	private String tamanho;
 	private String cor;
-	private String estampa;
+	private byte[] estampa;
 
 	private Integer id_modelo;
 
@@ -33,7 +33,7 @@ public class Camisa {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Camisa(Integer id, String tamanho, String cor, String estampa, int id_modelo) {
+	public Camisa(Integer id, String tamanho, String cor, byte[] estampa, int id_modelo) {
 		super();
 		this.id = id;
 		this.tamanho = tamanho;
@@ -66,11 +66,11 @@ public class Camisa {
 		this.cor = cor;
 	}
 
-	public String getEstampa() {
+	public byte[] getEstampa() {
 		return estampa;
 	}
 
-	public void setEstampa(String estampa) {
+	public void setEstampa(byte[] estampa) {
 		this.estampa = estampa;
 	}
 

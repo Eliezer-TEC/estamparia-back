@@ -26,7 +26,6 @@ public class EnderecoService {
 		mensagemValidacao += validarCamposObrigatorios(novoEndereco.getBairro(), "bairro");
 		mensagemValidacao += validarCamposObrigatorios(novoEndereco.getCep(), "cep");
 		mensagemValidacao += validarCamposObrigatorios(novoEndereco.getCidade(), "cidade");
-		mensagemValidacao += validarCamposObrigatorios(novoEndereco.getComplemento(), "complemento");
 		mensagemValidacao += validarCamposObrigatorios(novoEndereco.getEstado(), "estado");
 		mensagemValidacao += validarCamposObrigatorios(novoEndereco.getNumero(), "numero");
 		mensagemValidacao += validarCamposObrigatorios(novoEndereco.getRua(), "rua");

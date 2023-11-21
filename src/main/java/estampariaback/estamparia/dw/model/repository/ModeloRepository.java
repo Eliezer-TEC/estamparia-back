@@ -10,5 +10,5 @@ import estampariaback.estamparia.dw.model.entity.Modelo;
 
 @Repository
 public interface ModeloRepository extends JpaRepository<Modelo, Long>, JpaSpecificationExecutor<Modelo> {
-	List<Modelo> findAllByIdLike(Integer id); 
+	List<Modelo> findAllById(Integer id); 
 }

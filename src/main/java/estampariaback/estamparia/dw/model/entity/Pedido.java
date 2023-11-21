@@ -1,5 +1,6 @@
 package estampariaback.estamparia.dw.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,10 +15,17 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name = "ID_PESSOA")
 	private int idPessoa;
+	
+	@Column(name = "ID_CAMISA")
 	private int idCamisa;
+	
+	@Column(name = "ID_ENDERECO")
 	private int idEndereco;
 	private double total;
+	
+	@Column(name = "STATUS_PEDIDO")
 	private String status;
 
 	

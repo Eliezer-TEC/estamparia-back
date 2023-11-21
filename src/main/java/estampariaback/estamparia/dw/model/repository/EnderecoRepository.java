@@ -11,4 +11,5 @@ import estampariaback.estamparia.dw.model.entity.Endereco;
 @Repository
 public interface EnderecoRepository extends JpaRepository<Endereco, Long>, JpaSpecificationExecutor<Endereco> {
 	List<Endereco> findAllByidLike(Integer id);
+
 }

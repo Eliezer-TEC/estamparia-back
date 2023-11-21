@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "f9f9ed02-a67b-46bd-baf2-a35730de73f3",
+		"name": "Estamparia-DW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29274601"
+	},
+	"item": [
+		{
+			"name": "Modelo",
+			"item": [
+				{
+					"name": "Cadastrar-Modelo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"valorVenda\": 23.90,\r\n\"dataCadastro\":\"2023-08-22\",\r\n\"dataFimVigencia\":\"2023-11-25\",\r\n\"custo\":12.90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/modelo/cadastrar"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": 1,\r\n\"valorVenda\": 21.90,\r\n\"dataCadastro\":\"2023-08-22\",\r\n\"dataFimVigencia\":\"2023-11-25\",\r\n\"custo\":12.90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/modelo/atualizar"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar-Todos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/modelo/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Camisas",
+			"item": [
+				{
+					"name": "Cadastrar-Camisa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"tamanho\":\"M\",\r\n\"cor\":\"Vermelho\",\r\n\"estampa\":\"Gucci\",\r\n\"id_modelo\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/camisa/cadastrar"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar-Camisa",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": 2,\r\n\"tamanho\":\"P\",\r\n\"cor\":\"Vermelho\",\r\n\"estampa\":\"Gucci\",\r\n\"id_modelo\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/camisa/atualizar"
+					},
+					"response": []
+				},
+				{
+					"name": "Camisa-Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/camisa/todos"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-camisa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/camisa/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endereco",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rua\": \"Rua José Néis\",\r\n    \"numero\": \"32\",\r\n    \"bairro\": \"Santa Tereza\",\r\n    \"cep\": \"88125-000\",\r\n    \"cidade\": \"São Pedro de Alcântara\",\r\n    \"estado\": \"Santa Catarina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/endereco/cadastrar"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"rua\": \"Rua José Néis\",\r\n    \"numero\": \"32\",\r\n    \"bairro\": \"Santa Tereza\",\r\n    \"cep\": \"88125-000\",\r\n    \"cidade\": \"São Pedro de Alcântara\",\r\n    \"estado\": \"Santa Catarina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/endereco/atualizar"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar-Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/endereco/todos"
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/endereco/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

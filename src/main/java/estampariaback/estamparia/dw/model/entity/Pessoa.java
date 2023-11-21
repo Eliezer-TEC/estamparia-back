@@ -2,6 +2,7 @@ package estampariaback.estamparia.dw.model.entity;
 
 import java.sql.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +20,7 @@ public class Pessoa {
 	private int idEndereco;
 	private String nome;
 	private String cpf;
+	@Column(name = "DT_NASC")
 	private Date dtNasc;
 	private String email;
 	private String ddd;
