@@ -22,7 +22,6 @@ public class Camisa {
 	private String tamanho;
 	private String cor;
 	private byte[] estampa;
-
 	private Integer id_modelo;
 
 	//@JsonBackReference
