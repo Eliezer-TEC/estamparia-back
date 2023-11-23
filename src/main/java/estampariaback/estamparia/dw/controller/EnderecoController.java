@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
+import estampariaback.estamparia.dw.model.entity.Camisa;
 import estampariaback.estamparia.dw.model.entity.Endereco;
 import estampariaback.estamparia.dw.model.seletor.EnderecoSeletor;
 import estampariaback.estamparia.dw.service.EnderecoService;
@@ -58,4 +59,10 @@ public class EnderecoController {
 		public List<Endereco> listarComSeletor(@RequestBody EnderecoSeletor seletor){
 			return enderecoService.listarComSeletor(seletor);
 		}
+		
+		@GetMapping("/{id}")
+		public Endereco consultarPorId(@PathVariable Integer id) {   //PATH VARIABLE PERMITE PESQUISAR NA URL DIRETO COM O NÚMERO
+			return enderecoService.consultarPorId(id.longValue());
+		}
+
 }

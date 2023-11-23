@@ -16,7 +16,7 @@ public class PessoaSeletor {
 	private String ddd;
 	private String telefone;
 	private String senha;
-	private boolean funcionario;
+	private Boolean funcionario;
 
 	public PessoaSeletor() {
 		super();
@@ -113,11 +113,11 @@ public class PessoaSeletor {
 		this.senha = senha;
 	}
 
-	public boolean isFuncionario() {
+	public Boolean isFuncionario() {
 		return funcionario;
 	}
 
-	public void setFuncionario(boolean funcionario) {
+	public void setFuncionario(Boolean funcionario) {
 		this.funcionario = funcionario;
 	}
 

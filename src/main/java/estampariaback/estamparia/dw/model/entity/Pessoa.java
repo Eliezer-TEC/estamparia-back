@@ -26,10 +26,10 @@ public class Pessoa {
 	private String ddd;
 	private String telefone;
 	private String senha;
-	private boolean funcionario;
+	private Boolean funcionario;
 	
 	public Pessoa(Integer id, int idEndereco, String nome, String cpf, Date dtNasc, String email, String ddd,
-			String telefone, String senha, boolean funcionario) {
+			String telefone, String senha, Boolean funcionario) {
 		super();
 		this.id = id;
 		this.idEndereco = idEndereco;
@@ -99,11 +99,11 @@ public class Pessoa {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public boolean isFuncionario() {
+	public Boolean isFuncionario() {
 		return funcionario;
 	}
 
-	public void setFuncionario(boolean funcionario) {
+	public void setFuncionario(Boolean funcionario) {
 		this.funcionario = funcionario;
 	}
 

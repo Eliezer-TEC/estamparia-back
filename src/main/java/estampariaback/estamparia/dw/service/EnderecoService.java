@@ -64,4 +64,7 @@ public class EnderecoService {
         return enderecoRepository.findAll(specification);
 	}
 
+	public Endereco consultarPorId(Long id) {
+		return enderecoRepository.findById(id.longValue()).get();}
+
 }
