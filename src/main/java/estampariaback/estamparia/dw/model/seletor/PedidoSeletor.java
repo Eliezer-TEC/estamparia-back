@@ -1,22 +1,14 @@
 package estampariaback.estamparia.dw.model.seletor;
 
-import jakarta.persistence.Column;
 
 public class PedidoSeletor {
 
 	private Integer id;
-	@Column(name = "ID_PESSOA")
 	private int idPessoa;
-
-	@Column(name = "ID_CAMISA")
 	private int idCamisa;
-
-	@Column(name = "ID_ENDERECO")
 	private int idEndereco;
 	private Double totalMinimo;
 	private Double totalMaximo;
-
-	@Column(name = "STATUS_PEDIDO")
 	private String status;
 
 	private Double quantidadeMinima;

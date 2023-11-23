@@ -17,7 +17,6 @@ import jakarta.transaction.Transactional;
 import estampariaback.estamparia.dw.model.seletor.CamisaSeletor;
 import estampariaback.estamparia.dw.model.specification.CamisaSpecification;
 
-
 @Service
 public class CamisaService {
 
@@ -48,7 +47,7 @@ public class CamisaService {
 
 	public boolean excluir(Integer id) {
 		camisaRepository.deleteById(id.longValue());
-		
+
 		return true;
 	}
 
@@ -58,33 +57,33 @@ public class CamisaService {
 
 	public Camisa atualizar(Camisa produtoParaAtualizar) throws CampoInvalidoException {
 		validarCamposObrigatorios(produtoParaAtualizar);
-		
+
 		return camisaRepository.save(produtoParaAtualizar);
 	}
 
-	
 	@Transactional
 	public Camisa consultarPorId(Long id) {
 		return camisaRepository.findById(id.longValue()).get();
-		
+
 	}
-	
+		
+	/*Se existe Para deletar e atualizar
+	  */
+	 
+	public Camisa buscarPorId(Integer id) {
+		Optional<Camisa> camisaOptional = camisaRepository.findById(id.longValue());
 
-
-	 public Camisa buscarPorId(Integer id) {
-	        Optional<Camisa> camisaOptional = camisaRepository.findById(id.longValue());
-	        
-	        // Verificar se a camisa com o ID fornecido existe
-	        if (camisaOptional.isPresent()) {
-	            return camisaOptional.get();
-	        } else {
-	        	 throw new NoSuchElementException("ID não encontrado: " + id);
-	        }
-	    }
+		// Verificar se a camisa com o ID fornecido existe
+		if (camisaOptional.isPresent()) {
+			return camisaOptional.get();
+		} else {
+			throw new NoSuchElementException("ID não encontrado: " + id);
+		}
+	}
 
 	public List<Camisa> listarComSeletor(CamisaSeletor seletor) {
 		Specification<Camisa> specification = CamisaSpecification.comFiltros(seletor);
-        return camisaRepository.findAll(specification);
+		return camisaRepository.findAll(specification);
 	}
 
 }

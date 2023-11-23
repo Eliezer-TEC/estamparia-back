@@ -10,7 +10,6 @@ public class PessoaSeletor {
 	private int idEndereco;
 	private String nome;
 	private String cpf;
-	@Column(name = "DT_NASC")
 	private Date dtNascMaximo;
 	private Date dtNascMinimo;
 
