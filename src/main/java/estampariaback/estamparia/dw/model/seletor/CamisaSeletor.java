@@ -8,7 +8,23 @@ public class CamisaSeletor {
 	private String cor;
 	private String estampa;
 
-	private Integer id_modelo;
+	private Integer idModelo;
+
+	public CamisaSeletor(Integer id, String tamanhoMinimo, String tamanhoMaximo, String cor, String estampa,
+			Integer idModelo) {
+		super();
+		this.id = id;
+		this.tamanhoMinimo = tamanhoMinimo;
+		this.tamanhoMaximo = tamanhoMaximo;
+		this.cor = cor;
+		this.estampa = estampa;
+		this.idModelo = idModelo;
+	}
+
+	public CamisaSeletor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Integer getId() {
 		return id;
@@ -51,11 +67,11 @@ public class CamisaSeletor {
 	}
 
 	public Integer getId_modelo() {
-		return id_modelo;
+		return idModelo;
 	}
 
 	public void setId_modelo(Integer id_modelo) {
-		this.id_modelo = id_modelo;
+		this.idModelo = id_modelo;
 	}
 
 }

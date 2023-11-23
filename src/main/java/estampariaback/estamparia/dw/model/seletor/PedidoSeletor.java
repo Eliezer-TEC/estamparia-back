@@ -1,19 +1,9 @@
-package estampariaback.estamparia.dw.model.entity;
+package estampariaback.estamparia.dw.model.seletor;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "pedido")
-@NoArgsConstructor
-public class Pedido {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PedidoSeletor {
+
 	private Integer id;
 	@Column(name = "ID_PESSOA")
 	private int idPessoa;
@@ -28,14 +18,15 @@ public class Pedido {
 	@Column(name = "STATUS_PEDIDO")
 	private String status;
 
-	@Column(name = "Quantidade")
-	private Double quantidade;
+	private Double quantidadeMinima;
+	private Double quantidadeMaxima;
 
-	public Pedido() {
+	public PedidoSeletor() {
 		super();
 	}
 
-	public Pedido(Integer id, int idPessoa, int idCamisa, int idEndereco, double total, String status, Double quantidade) {
+	public PedidoSeletor(Integer id, int idPessoa, int idCamisa, int idEndereco, double total, String status,
+			Double quantidadeMinima, Double quantidadeMaxima) {
 		super();
 		this.id = id;
 		this.idPessoa = idPessoa;
@@ -43,7 +34,8 @@ public class Pedido {
 		this.idEndereco = idEndereco;
 		this.total = total;
 		this.status = status;
-		this.quantidade = quantidade;
+		this.quantidadeMinima = quantidadeMinima;
+		this.quantidadeMaxima = quantidadeMaxima;
 	}
 
 	public Integer getId() {
@@ -94,12 +86,20 @@ public class Pedido {
 		this.status = status;
 	}
 
-	public Double getQuantidade() {
-		return quantidade;
+	public Double getQuantidadeMinima() {
+		return quantidadeMinima;
 	}
 
-	public void setQuantidade(Double quantidade) {
-		this.quantidade = quantidade;
+	public void setQuantidadeMinima(Double quantidadeMinima) {
+		this.quantidadeMinima = quantidadeMinima;
+	}
+
+	public Double getQuantidadeMaxima() {
+		return quantidadeMaxima;
+	}
+
+	public void setQuantidadeMaxima(Double quantidadeMaxima) {
+		this.quantidadeMaxima = quantidadeMaxima;
 	}
 
 }
