@@ -73,8 +73,6 @@ public class CamisaController {
 	    }
 	}
 
-
-
 	// listar todos
 	@GetMapping(path = "/todos")
 	public List<Camisa> listarTodos() {
@@ -85,6 +83,11 @@ public class CamisaController {
 	@PostMapping("/filtro")
 	public List<Camisa> listarComSeletor(@RequestBody CamisaSeletor seletor){
 		return camisaService.listarComSeletor(seletor);
+	}
+	
+	@GetMapping("/{id}")
+	public Camisa consultarPorId(@PathVariable Integer id) {   //PATH VARIABLE PERMITE PESQUISAR NA URL DIRETO COM O NÚMERO
+		return camisaService.consultarPorId(id.longValue());
 	}
 
 }
