@@ -22,7 +22,7 @@ public class Camisa {
 	private String tamanho;
 	private String cor;
 	private byte[] estampa;
-	private Integer id_modelo;
+	private Integer idModelo;
 
 	//@JsonBackReference
 	//@OneToMany(mappedBy = "camisa")
@@ -38,7 +38,7 @@ public class Camisa {
 		this.tamanho = tamanho;
 		this.cor = cor;
 		this.estampa = estampa;
-		this.id_modelo = id_modelo;
+		this.idModelo = id_modelo;
 	}
 
 	public Integer getId() {
@@ -74,11 +74,11 @@ public class Camisa {
 	}
 
 	public int getId_modelo() {
-		return id_modelo;
+		return idModelo;
 	}
 
 	public void setId_modelo(int id_modelo) {
-		this.id_modelo = id_modelo;
+		this.idModelo = id_modelo;
 	}
 	
 	
