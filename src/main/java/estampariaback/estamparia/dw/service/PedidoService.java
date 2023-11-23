@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Pedido;
 import estampariaback.estamparia.dw.model.repository.PedidoRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class PedidoService {
@@ -58,4 +59,9 @@ public class PedidoService {
         validarCamposObrigatorios(pedidoParaAtualizar);
         return pedidoRepository.save(pedidoParaAtualizar);
     }
+    
+    @Transactional
+	public Pedido consultarPorId(Long id) {
+    	return pedidoRepository.findById(id.longValue()).get();
+	}
 }

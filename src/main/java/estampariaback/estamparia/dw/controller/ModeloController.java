@@ -44,4 +44,10 @@ public class ModeloController {
     public List<Modelo> listarTodos() {
         return modeloService.listarTodos();
     }
+    
+ 	@GetMapping(path = "/{id}")
+ 	public Modelo consultarPorId(@PathVariable Integer id) {
+ 		return modeloService.consultarPorId(id.longValue());
+
+ 	}
 }

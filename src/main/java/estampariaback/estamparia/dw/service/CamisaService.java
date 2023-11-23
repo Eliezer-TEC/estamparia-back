@@ -53,7 +53,7 @@ public class CamisaService {
 	}
 	
 	@Transactional
-	public Camisa listarPorId(Long id) {
+	public Camisa consultarPorId(Long id) {
 		return camisaRepository.findById(id.longValue()).get();
 		
 	}
