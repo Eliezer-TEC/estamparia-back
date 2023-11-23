@@ -13,7 +13,8 @@ public class PedidoSeletor {
 
 	@Column(name = "ID_ENDERECO")
 	private int idEndereco;
-	private double total;
+	private Double totalMinimo;
+	private Double totalMaximo;
 
 	@Column(name = "STATUS_PEDIDO")
 	private String status;
@@ -25,17 +26,20 @@ public class PedidoSeletor {
 		super();
 	}
 
-	public PedidoSeletor(Integer id, int idPessoa, int idCamisa, int idEndereco, double total, String status,
-			Double quantidadeMinima, Double quantidadeMaxima) {
-		super();
-		this.id = id;
-		this.idPessoa = idPessoa;
-		this.idCamisa = idCamisa;
-		this.idEndereco = idEndereco;
-		this.total = total;
-		this.status = status;
-		this.quantidadeMinima = quantidadeMinima;
-		this.quantidadeMaxima = quantidadeMaxima;
+	public Double getTotalMinimo() {
+		return totalMinimo;
+	}
+
+	public void setTotalMinimo(Double totalMinimo) {
+		this.totalMinimo = totalMinimo;
+	}
+
+	public Double getTotalMaximo() {
+		return totalMaximo;
+	}
+
+	public void setTotalMaximo(Double totalMaximo) {
+		this.totalMaximo = totalMaximo;
 	}
 
 	public Integer getId() {
@@ -70,13 +74,7 @@ public class PedidoSeletor {
 		this.idEndereco = idEndereco;
 	}
 
-	public double getTotal() {
-		return total;
-	}
 
-	public void setTotal(double total) {
-		this.total = total;
-	}
 
 	public String getStatus() {
 		return status;

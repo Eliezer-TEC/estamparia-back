@@ -1,26 +1,17 @@
 package estampariaback.estamparia.dw.model.seletor;
 
+import java.util.List;
+
 public class CamisaSeletor {
 
 	private Integer id;
-	private String tamanhoMinimo;
-	private String tamanhoMaximo;
+
 	private String cor;
 	private String estampa;
-
 	private Integer idModelo;
+	private List<String> tamanhos;
 
-	public CamisaSeletor(Integer id, String tamanhoMinimo, String tamanhoMaximo, String cor, String estampa,
-			Integer idModelo) {
-		super();
-		this.id = id;
-		this.tamanhoMinimo = tamanhoMinimo;
-		this.tamanhoMaximo = tamanhoMaximo;
-		this.cor = cor;
-		this.estampa = estampa;
-		this.idModelo = idModelo;
-	}
-
+	
 	public CamisaSeletor() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -34,21 +25,7 @@ public class CamisaSeletor {
 		this.id = id;
 	}
 
-	public String getTamanhoMinimo() {
-		return tamanhoMinimo;
-	}
 
-	public void setTamanhoMinimo(String tamanhoMinimo) {
-		this.tamanhoMinimo = tamanhoMinimo;
-	}
-
-	public String getTamanhoMaximo() {
-		return tamanhoMaximo;
-	}
-
-	public void setTamanhoMaximo(String tamanhoMaximo) {
-		this.tamanhoMaximo = tamanhoMaximo;
-	}
 
 	public String getCor() {
 		return cor;
@@ -72,6 +49,14 @@ public class CamisaSeletor {
 
 	public void setId_modelo(Integer id_modelo) {
 		this.idModelo = id_modelo;
+	}
+
+	public List<String> getTamanhos() {
+		return tamanhos;
+	}
+
+	public void setTamanhos(List<String> tamanhos) {
+		this.tamanhos = tamanhos;
 	}
 
 }
