@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Camisa;
+import estampariaback.estamparia.dw.model.seletor.CamisaSeletor;
 import estampariaback.estamparia.dw.service.CamisaService;
 
 @RestController
@@ -78,6 +79,11 @@ public class CamisaController {
 	public List<Camisa> listarTodos() {
 		List<Camisa> camisas = camisaService.listarTodos();
 		return camisas;
+	}
+	
+	@PostMapping("/filtro")
+	public List<Camisa> listarComSeletor(@RequestBody CamisaSeletor seletor){
+		return camisaService.listarComSeletor(seletor);
 	}
 
 }

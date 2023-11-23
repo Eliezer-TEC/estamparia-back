@@ -5,11 +5,14 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Camisa;
 import estampariaback.estamparia.dw.model.repository.CamisaRepository;
+import estampariaback.estamparia.dw.model.seletor.CamisaSeletor;
+import estampariaback.estamparia.dw.model.specification.CamisaSpecification;
 
 @Service
 public class CamisaService {
@@ -65,4 +68,9 @@ public class CamisaService {
 	        	 throw new NoSuchElementException("ID não encontrado: " + id);
 	        }
 	    }
+
+	public List<Camisa> listarComSeletor(CamisaSeletor seletor) {
+		Specification<Camisa> specification = CamisaSpecification.comFiltros(seletor);
+        return camisaRepository.findAll(specification);
+	}
 }

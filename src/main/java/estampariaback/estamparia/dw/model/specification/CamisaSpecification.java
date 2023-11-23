@@ -15,18 +15,17 @@ public class CamisaSpecification {
 		return (root, query, cb) -> {
 			List<Predicate> predicates = new ArrayList<>();
 
-			if (seletor.getTamanhoMinimo() != null && seletor.getTamanhoMinimo() != null) {
-				predicates.add(cb.between(root.get("tamanho"), seletor.getTamanhoMinimo(), seletor.getTamanhoMinimo()));
+			if (seletor.getTamanhos() != null && seletor.getTamanhos() != null) {
+				Predicate predicado = root.get("tamanho").in(seletor.getTamanhos());
+				predicates.add(predicado);
 			}
-			if (seletor.getTamanhoMaximo() != null && seletor.getTamanhoMaximo() != null) {
-				// WHERE peso BETWEEN min AND max
-				predicates.add(cb.between(root.get("tamanho"), seletor.getTamanhoMaximo(), seletor.getTamanhoMaximo()));
-
-			} else if (seletor.getCor() != null) {
+			
+			if (seletor.getCor() != null) {
 				// WHERE peso >= min
 				predicates.add(cb.greaterThanOrEqualTo(root.get("peso"), seletor.getCor()));
 
-			} else if (seletor.getEstampa() != null) {
+			} 
+			if (seletor.getEstampa() != null) {
 				// WHERE peso <= max
 				predicates.add(cb.lessThanOrEqualTo(root.get("peso"), seletor.getEstampa()));
 			}
