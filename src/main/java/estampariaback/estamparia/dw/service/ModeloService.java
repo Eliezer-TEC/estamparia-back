@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Modelo;
 import estampariaback.estamparia.dw.model.repository.ModeloRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class ModeloService {
@@ -51,5 +52,10 @@ public class ModeloService {
 	public Modelo atualizar(Modelo modeloParaAtualizar) throws CampoInvalidoException {
 		validarCamposObrigatorios(modeloParaAtualizar);
 		return modeloRepository.save(modeloParaAtualizar);
+	}
+	
+	@Transactional
+	public Modelo consultarPorId(Long id) {
+		return modeloRepository.findById(id.longValue()).get();
 	}
 }

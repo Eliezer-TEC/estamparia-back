@@ -36,4 +36,10 @@ public class PedidoController {
     public List<Pedido> listarTodos() {
         return pedidoService.listarTodos();
     }
+    
+ 	@GetMapping(path = "/{id}")
+ 	public Pedido consultarPorId(@PathVariable Integer id) {
+ 		return pedidoService.consultarPorId(id.longValue());
+
+ 	}
 }

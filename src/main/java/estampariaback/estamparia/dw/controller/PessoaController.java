@@ -36,4 +36,10 @@ public class PessoaController {
     public List<Pessoa> listarTodos() {
         return pessoaService.listarTodos();
     }
+    
+ 	@GetMapping(path = "/{id}")
+ 	public Pessoa consultarPorId(@PathVariable Integer id) {
+ 		return pessoaService.consultarPorId(id.longValue());
+
+ 	}
 }
