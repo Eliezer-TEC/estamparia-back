@@ -31,8 +31,16 @@ public class PessoaSpecifications {
                 predicates.add(cb.equal(root.get("cpf"), seletor.getCpf()));
             }
 
-            if (seletor.getDtNasc() != null) {
-                predicates.add(cb.equal(root.get("dtNasc"), seletor.getDtNasc()));
+            if (seletor.getDtNascMinimo() != null && seletor.getDtNascMaximo() != null) {
+                // WHERE dataCadastro BETWEEN min AND max
+                predicates.add(cb.between(root.get("dtNasc"), seletor.getDtNascMinimo(),
+                        seletor.getDtNascMaximo()));
+            } else if (seletor.getDtNascMinimo() != null) {
+                // WHERE dataCadastro >= min
+                predicates.add(cb.greaterThanOrEqualTo(root.get("dtNasc"), seletor.getDtNascMinimo()));
+            } else if (seletor.getDtNascMaximo() != null) {
+                // WHERE dataCadastro <= max
+                predicates.add(cb.lessThanOrEqualTo(root.get("dtNasc"), seletor.getDtNascMaximo()));
             }
 
             if (seletor.getEmail() != null && !seletor.getEmail().isEmpty()) {

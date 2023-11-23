@@ -11,7 +11,9 @@ public class PessoaSeletor {
 	private String nome;
 	private String cpf;
 	@Column(name = "DT_NASC")
-	private Date dtNasc;
+	private Date dtNascMaximo;
+	private Date dtNascMinimo;
+
 	private String email;
 	private String ddd;
 	private String telefone;
@@ -22,20 +24,31 @@ public class PessoaSeletor {
 		super();
 	}
 
-	public PessoaSeletor(Integer id, int idEndereco, String nome, String cpf, Date dtNasc, String email, String ddd,
-			String telefone, String senha, boolean funcionario) {
-		super();
-		this.id = id;
-		this.idEndereco = idEndereco;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.dtNasc = dtNasc;
-		this.email = email;
-		this.ddd = ddd;
-		this.telefone = telefone;
-		this.senha = senha;
-		this.funcionario = funcionario;
+	
+
+	public Date getDtNascMaximo() {
+		return dtNascMaximo;
 	}
+
+
+
+	public void setDtNascMaximo(Date dtNascMaximo) {
+		this.dtNascMaximo = dtNascMaximo;
+	}
+
+
+
+	public Date getDtNascMinimo() {
+		return dtNascMinimo;
+	}
+
+
+
+	public void setDtNascMinimo(Date dtNascMinimo) {
+		this.dtNascMinimo = dtNascMinimo;
+	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -69,13 +82,6 @@ public class PessoaSeletor {
 		this.cpf = cpf;
 	}
 
-	public Date getDtNasc() {
-		return dtNasc;
-	}
-
-	public void setDtNasc(Date dtNasc) {
-		this.dtNasc = dtNasc;
-	}
 
 	public String getEmail() {
 		return email;
