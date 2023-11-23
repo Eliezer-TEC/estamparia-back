@@ -42,4 +42,9 @@ public class PessoaController {
 	public List<Pessoa> listarComSeletor(@RequestBody PessoaSeletor seletor){
 		return pessoaService.listarComSeletor(seletor);
 	}
+ 	@GetMapping(path = "/{id}")
+ 	public Pessoa consultarPorId(@PathVariable Integer id) {
+ 		return pessoaService.consultarPorId(id.longValue());
+
+ 	}
 }

@@ -11,6 +11,7 @@ import estampariaback.estamparia.dw.model.entity.Modelo;
 import estampariaback.estamparia.dw.model.repository.ModeloRepository;
 import estampariaback.estamparia.dw.model.seletor.ModeloSeletor;
 import estampariaback.estamparia.dw.model.specification.ModeloSpecifications;
+import jakarta.transaction.Transactional;
 
 @Service
 public class ModeloService {
@@ -59,5 +60,10 @@ public class ModeloService {
 	public List<Modelo> listarComSeletor(ModeloSeletor seletor) {
 		Specification<Modelo> specification = ModeloSpecifications.comFiltros(seletor);
         return modeloRepository.findAll(specification);
+	}
+	
+	@Transactional
+	public Modelo consultarPorId(Long id) {
+		return modeloRepository.findById(id.longValue()).get();
 	}
 }

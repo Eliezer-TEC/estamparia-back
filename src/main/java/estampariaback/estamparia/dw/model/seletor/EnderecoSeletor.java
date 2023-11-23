@@ -12,7 +12,6 @@ public class EnderecoSeletor {
 
 	public EnderecoSeletor() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public EnderecoSeletor(Integer id, String rua, String numero, String bairro, String cep, String cidade,

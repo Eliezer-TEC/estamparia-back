@@ -11,8 +11,12 @@ import org.springframework.stereotype.Service;
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Camisa;
 import estampariaback.estamparia.dw.model.repository.CamisaRepository;
+
+import jakarta.transaction.Transactional;
+
 import estampariaback.estamparia.dw.model.seletor.CamisaSeletor;
 import estampariaback.estamparia.dw.model.specification.CamisaSpecification;
+
 
 @Service
 public class CamisaService {
@@ -58,6 +62,15 @@ public class CamisaService {
 		return camisaRepository.save(produtoParaAtualizar);
 	}
 
+	
+	@Transactional
+	public Camisa consultarPorId(Long id) {
+		return camisaRepository.findById(id.longValue()).get();
+		
+	}
+	
+
+
 	 public Camisa buscarPorId(Integer id) {
 	        Optional<Camisa> camisaOptional = camisaRepository.findById(id.longValue());
 	        
@@ -73,4 +86,5 @@ public class CamisaService {
 		Specification<Camisa> specification = CamisaSpecification.comFiltros(seletor);
         return camisaRepository.findAll(specification);
 	}
+
 }

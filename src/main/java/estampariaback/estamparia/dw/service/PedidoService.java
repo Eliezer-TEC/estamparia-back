@@ -11,6 +11,7 @@ import estampariaback.estamparia.dw.model.entity.Pedido;
 import estampariaback.estamparia.dw.model.repository.PedidoRepository;
 import estampariaback.estamparia.dw.model.seletor.PedidoSeletor;
 import estampariaback.estamparia.dw.model.specification.PedidoSpecifications;
+import jakarta.transaction.Transactional;
 
 @Service
 public class PedidoService {
@@ -65,5 +66,9 @@ public class PedidoService {
 	public List<Pedido> listarComSeletor(PedidoSeletor seletor) {
 		Specification<Pedido> specification = PedidoSpecifications.comFiltros(seletor);
         return pedidoRepository.findAll(specification);
+	}
+    @Transactional
+	public Pedido consultarPorId(Long id) {
+    	return pedidoRepository.findById(id.longValue()).get();
 	}
 }

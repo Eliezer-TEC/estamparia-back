@@ -41,4 +41,10 @@ public class PedidoController {
 	public List<Pedido> listarComSeletor(@RequestBody PedidoSeletor seletor){
 		return pedidoService.listarComSeletor(seletor);
 	}
+    
+ 	@GetMapping(path = "/{id}")
+ 	public Pedido consultarPorId(@PathVariable Integer id) {
+ 		return pedidoService.consultarPorId(id.longValue());
+
+ 	}
 }

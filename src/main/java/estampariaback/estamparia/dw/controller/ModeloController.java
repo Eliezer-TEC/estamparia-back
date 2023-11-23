@@ -49,4 +49,10 @@ public class ModeloController {
 	public List<Modelo> listarComSeletor(@RequestBody ModeloSeletor seletor){
 		return modeloService.listarComSeletor(seletor);
 	}
+    
+ 	@GetMapping(path = "/{id}")
+ 	public Modelo consultarPorId(@PathVariable Integer id) {
+ 		return modeloService.consultarPorId(id.longValue());
+
+ 	}
 }
