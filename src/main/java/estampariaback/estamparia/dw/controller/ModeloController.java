@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Modelo;
+import estampariaback.estamparia.dw.model.seletor.ModeloSeletor;
 import estampariaback.estamparia.dw.service.ModeloService;
 
 @RestController
@@ -44,4 +45,8 @@ public class ModeloController {
     public List<Modelo> listarTodos() {
         return modeloService.listarTodos();
     }
+    @PostMapping("/filtro")
+	public List<Modelo> listarComSeletor(@RequestBody ModeloSeletor seletor){
+		return modeloService.listarComSeletor(seletor);
+	}
 }

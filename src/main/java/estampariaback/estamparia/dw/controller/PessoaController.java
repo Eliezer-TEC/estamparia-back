@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Pessoa;
+import estampariaback.estamparia.dw.model.seletor.PessoaSeletor;
 import estampariaback.estamparia.dw.service.PessoaService;
 
 @RestController
@@ -36,4 +37,9 @@ public class PessoaController {
     public List<Pessoa> listarTodos() {
         return pessoaService.listarTodos();
     }
+    
+    @PostMapping("/filtro")
+	public List<Pessoa> listarComSeletor(@RequestBody PessoaSeletor seletor){
+		return pessoaService.listarComSeletor(seletor);
+	}
 }

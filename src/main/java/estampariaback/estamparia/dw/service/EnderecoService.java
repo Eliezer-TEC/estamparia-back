@@ -3,11 +3,14 @@ package estampariaback.estamparia.dw.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Endereco;
 import estampariaback.estamparia.dw.model.repository.EnderecoRepository;
+import estampariaback.estamparia.dw.model.seletor.EnderecoSeletor;
+import estampariaback.estamparia.dw.model.specification.EnderecoSpecifications;
 
 @Service
 public class EnderecoService {
@@ -54,6 +57,11 @@ public class EnderecoService {
 
 	public List<Endereco> listarTodos() {
 		return enderecoRepository.findAll();
+	}
+
+	public List<Endereco> listarComSeletor(EnderecoSeletor seletor) {
+		Specification<Endereco> specification = EnderecoSpecifications.comFiltros(seletor);
+        return enderecoRepository.findAll(specification);
 	}
 
 }

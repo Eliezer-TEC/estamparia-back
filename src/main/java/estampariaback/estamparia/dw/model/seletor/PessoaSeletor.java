@@ -2,7 +2,6 @@ package estampariaback.estamparia.dw.model.seletor;
 
 import java.sql.Date;
 
-import jakarta.persistence.Column;
 
 public class PessoaSeletor {
 
@@ -10,7 +9,6 @@ public class PessoaSeletor {
 	private int idEndereco;
 	private String nome;
 	private String cpf;
-	@Column(name = "DT_NASC")
 	private Date dtNascMaximo;
 	private Date dtNascMinimo;
 

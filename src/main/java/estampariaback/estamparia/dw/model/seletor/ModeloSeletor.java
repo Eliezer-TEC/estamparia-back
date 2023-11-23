@@ -2,7 +2,6 @@ package estampariaback.estamparia.dw.model.seletor;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
 
 
 public class ModeloSeletor {

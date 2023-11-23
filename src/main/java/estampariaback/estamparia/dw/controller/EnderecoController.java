@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Endereco;
+import estampariaback.estamparia.dw.model.seletor.EnderecoSeletor;
 import estampariaback.estamparia.dw.service.EnderecoService;
 
 
@@ -51,5 +52,10 @@ public class EnderecoController {
 		public List<Endereco> listarTodos(){
 			List<Endereco> endereco = enderecoService.listarTodos();
 			return endereco;
+		}
+		
+		@PostMapping("/filtro")
+		public List<Endereco> listarComSeletor(@RequestBody EnderecoSeletor seletor){
+			return enderecoService.listarComSeletor(seletor);
 		}
 }

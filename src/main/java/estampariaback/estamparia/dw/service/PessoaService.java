@@ -3,11 +3,14 @@ package estampariaback.estamparia.dw.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Pessoa;
 import estampariaback.estamparia.dw.model.repository.PessoaRepository;
+import estampariaback.estamparia.dw.model.seletor.PessoaSeletor;
+import estampariaback.estamparia.dw.model.specification.PessoaSpecifications;
 
 @Service
 public class PessoaService {
@@ -38,4 +41,9 @@ public class PessoaService {
         validarCamposObrigatorios(pessoaParaAtualizar);
         return pessoaRepository.save(pessoaParaAtualizar);
     }
+
+	public List<Pessoa> listarComSeletor(PessoaSeletor seletor) {
+		Specification<Pessoa> specification = PessoaSpecifications.comFiltros(seletor);
+        return pessoaRepository.findAll(specification);
+	}
 }

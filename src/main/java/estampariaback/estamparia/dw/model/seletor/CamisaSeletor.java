@@ -9,12 +9,29 @@ public class CamisaSeletor {
 	private String cor;
 	private String estampa;
 	private Integer idModelo;
+	private String nomeArquivo;
 	private List<String> tamanhos;
 
 	
 	public CamisaSeletor() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public Integer getIdModelo() {
+		return idModelo;
+	}
+
+	public void setIdModelo(Integer idModelo) {
+		this.idModelo = idModelo;
+	}
+
+	public String getNomeArquivo() {
+		return nomeArquivo;
+	}
+
+	public void setNomeArquivo(String nomeArquivo) {
+		this.nomeArquivo = nomeArquivo;
 	}
 
 	public Integer getId() {

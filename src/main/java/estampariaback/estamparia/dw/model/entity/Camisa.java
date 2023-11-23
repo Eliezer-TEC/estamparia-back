@@ -1,8 +1,6 @@
 package estampariaback.estamparia.dw.model.entity;
 
-import java.util.List;
-
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +21,8 @@ public class Camisa {
 	private String cor;
 	private byte[] estampa;
 	private Integer idModelo;
+	@Column(name = "NOME_ARQUIVO")
+	private String nomeArquivo;
 
 	//@JsonBackReference
 	//@OneToMany(mappedBy = "camisa")
@@ -32,14 +32,44 @@ public class Camisa {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Camisa(Integer id, String tamanho, String cor, byte[] estampa, int id_modelo) {
+	
+
+
+
+	public Camisa(Integer id, String tamanho, String cor, byte[] estampa, Integer idModelo, String nomeArquivo) {
 		super();
 		this.id = id;
 		this.tamanho = tamanho;
 		this.cor = cor;
 		this.estampa = estampa;
-		this.idModelo = id_modelo;
+		this.idModelo = idModelo;
+		this.nomeArquivo = nomeArquivo;
 	}
+
+
+
+	public Integer getIdModelo() {
+		return idModelo;
+	}
+
+
+
+	public void setIdModelo(Integer idModelo) {
+		this.idModelo = idModelo;
+	}
+
+
+
+	public String getNomeArquivo() {
+		return nomeArquivo;
+	}
+
+
+
+	public void setNomeArquivo(String nomeArquivo) {
+		this.nomeArquivo = nomeArquivo;
+	}
+
 
 	public Integer getId() {
 		return id;

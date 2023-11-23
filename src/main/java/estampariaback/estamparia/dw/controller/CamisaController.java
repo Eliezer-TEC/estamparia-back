@@ -34,6 +34,7 @@ public class CamisaController {
 	public Camisa salvar(Camisa novaCamisa, @RequestParam("foto") MultipartFile foto) throws CampoInvalidoException {
 		try {
 			novaCamisa.setEstampa(foto.getBytes());
+			novaCamisa.setNomeArquivo(foto.getName());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
