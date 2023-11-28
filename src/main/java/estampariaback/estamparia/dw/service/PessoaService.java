@@ -25,11 +25,30 @@ public class PessoaService {
     }
 
     private void validarCamposObrigatorios(Pessoa novaPessoa) throws CampoInvalidoException {
-        // Implemente a validação dos campos obrigatórios para a entidade Pessoa aqui
-        // Certifique-se de verificar se os campos necessários estão preenchidos antes de salvar
-    }
+    	String mensagemValidacao = "";
 
-    public boolean excluir(Integer id) {
+		mensagemValidacao += validarCamposObrigatorios(novaPessoa.getNome(), "nome");
+		mensagemValidacao += validarCamposObrigatorios(novaPessoa.getCpf(), "cpf");
+		mensagemValidacao += validarCamposObrigatorios(novaPessoa.getDdd(), "ddd");
+		mensagemValidacao += validarCamposObrigatorios(novaPessoa.getEmail(), "email");
+		mensagemValidacao += validarCamposObrigatorios(novaPessoa.getSenha(), "senha");
+		mensagemValidacao += validarCamposObrigatorios(novaPessoa.getTelefone(), "telefone");
+
+
+
+		if (!mensagemValidacao.isEmpty()) {
+			throw new CampoInvalidoException(mensagemValidacao);
+		}
+	}
+
+    private String validarCamposObrigatorios(String valorCampo, String nomeCampo) {
+		if (valorCampo == null || valorCampo.trim().isEmpty()) {
+			return "Informe o " + nomeCampo + " \n";
+		}
+		return "";
+	}
+
+	public boolean excluir(Integer id) {
         pessoaRepository.deleteById(id.longValue());
         return true;
     }

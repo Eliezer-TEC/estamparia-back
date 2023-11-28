@@ -22,12 +22,12 @@ public class CamisaSpecification {
 			
 			if (seletor.getCor() != null) {
 				// WHERE peso >= min
-				predicates.add(cb.greaterThanOrEqualTo(root.get("peso"), seletor.getCor()));
+				predicates.add(cb.greaterThanOrEqualTo(root.get("cor"), seletor.getCor()));
 
 			} 
 			if (seletor.getEstampa() != null) {
 				// WHERE peso <= max
-				predicates.add(cb.lessThanOrEqualTo(root.get("peso"), seletor.getEstampa()));
+				predicates.add(cb.lessThanOrEqualTo(root.get("cor"), seletor.getEstampa()));
 			}
 
 			
