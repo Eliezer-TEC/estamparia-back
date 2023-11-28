@@ -15,37 +15,37 @@ import estampariaback.estamparia.dw.service.PessoaService;
 @CrossOrigin(origins = { "http://localhost:4200", "http://localhost:5500" }, maxAge = 3600)
 public class PessoaController {
 
-    @Autowired
-    private PessoaService pessoaService;
+	@Autowired
+	private PessoaService pessoaService;
 
-    @PostMapping("/cadastrar")
-    public Pessoa salvar(@RequestBody Pessoa novaPessoa) throws CampoInvalidoException {
-        return pessoaService.inserir(novaPessoa);
-    }
+	@PostMapping("/cadastrar")
+	public Pessoa salvar(@RequestBody Pessoa novaPessoa) throws CampoInvalidoException {
+		return pessoaService.inserir(novaPessoa);
+	}
 
-    @DeleteMapping("/{id}")
-    public boolean excluir(@PathVariable Integer id) {
-        return pessoaService.excluir(id);
-    }
+	@DeleteMapping("/{id}")
+	public boolean excluir(@PathVariable Integer id) {
+		return pessoaService.excluir(id);
+	}
 
-    @PutMapping("/atualizar")
-    public boolean atualizar(@RequestBody Pessoa pessoaParaAtualizar) throws CampoInvalidoException {
-        return pessoaService.atualizar(pessoaParaAtualizar) != null;
-    }
+	@PutMapping("/atualizar")
+	public boolean atualizar(@RequestBody Pessoa pessoaParaAtualizar) throws CampoInvalidoException {
+		return pessoaService.atualizar(pessoaParaAtualizar) != null;
+	}
 
-    @GetMapping(path = "/todos")
-    public List<Pessoa> listarTodos() {
-        return pessoaService.listarTodos();
-    }
-    
-    @PostMapping("/filtro")
-	public List<Pessoa> listarComSeletor(@RequestBody PessoaSeletor seletor){
+	@GetMapping(path = "/todos")
+	public List<Pessoa> listarTodos() {
+		return pessoaService.listarTodos();
+	}
+
+	@PostMapping("/filtro")
+	public List<Pessoa> listarComSeletor(@RequestBody PessoaSeletor seletor) {
 		return pessoaService.listarComSeletor(seletor);
 	}
-    
- 	@GetMapping(path = "/{id}")
- 	public Pessoa consultarPorId(@PathVariable Integer id) {
- 		return pessoaService.consultarPorId(id.longValue());
 
- 	}
+	@GetMapping(path = "/{id}")
+	public Pessoa consultarPorId(@PathVariable Integer id) {
+		return pessoaService.consultarPorId(id.longValue());
+
+	}
 }
