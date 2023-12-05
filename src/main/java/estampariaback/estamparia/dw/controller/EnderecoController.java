@@ -27,6 +27,8 @@ public class EnderecoController {
 	@Autowired //injeção de dependência (tomcat vai instanciar o objeto produtoService sob demanda)
 	private EnderecoService enderecoService;
 	
+	
+	
 	//Cadastro de enderecos
 		@PostMapping("/cadastrar")
 		public Endereco salvar(@RequestBody Endereco novoEndereco) throws CampoInvalidoException {

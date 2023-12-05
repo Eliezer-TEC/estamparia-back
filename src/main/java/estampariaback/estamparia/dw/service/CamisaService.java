@@ -17,6 +17,7 @@ import jakarta.transaction.Transactional;
 import estampariaback.estamparia.dw.model.seletor.CamisaSeletor;
 import estampariaback.estamparia.dw.model.specification.CamisaSpecification;
 
+
 @Service
 public class CamisaService {
 

@@ -60,7 +60,11 @@ public class PessoaSpecifications {
 				predicates.add(cb.equal(root.get("funcionario"), seletor.isFuncionario()));
 			}
 
-			return cb.and(predicates.toArray(new Predicate[0]));
+		
+		return cb.and(predicates.toArray(new Predicate[0]));
 		};
 	}
 }
+
+
+

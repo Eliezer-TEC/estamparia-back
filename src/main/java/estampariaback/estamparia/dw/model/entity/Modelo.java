@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "modelo")
-@NoArgsConstructor
 public class Modelo {
 
 	@Id
@@ -20,7 +19,7 @@ public class Modelo {
 	private Integer id;
 	private Double valorVenda;
 	private Double custo;
-	
+	private String nome;
 	@Column(name = "DT_CADASTRO")
 	private LocalDate dataCadastro;
 	@Column(name = "DT_FIM_VIGENCIA")
@@ -30,11 +29,13 @@ public class Modelo {
 		super();
 	}
 
-	public Modelo(Integer id, Double valorVenda, Double custo, LocalDate dataCadastro, LocalDate dataFimVigencia) {
+	public Modelo(Integer id, Double valorVenda, Double custo, String nome, LocalDate dataCadastro,
+			LocalDate dataFimVigencia) {
 		super();
 		this.id = id;
 		this.valorVenda = valorVenda;
 		this.custo = custo;
+		this.nome = nome;
 		this.dataCadastro = dataCadastro;
 		this.dataFimVigencia = dataFimVigencia;
 	}
@@ -63,6 +64,14 @@ public class Modelo {
 		this.custo = custo;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public LocalDate getDataCadastro() {
 		return dataCadastro;
 	}
@@ -78,4 +87,6 @@ public class Modelo {
 	public void setDataFimVigencia(LocalDate dataFimVigencia) {
 		this.dataFimVigencia = dataFimVigencia;
 	}
+
+	
 }

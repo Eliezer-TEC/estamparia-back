@@ -26,7 +26,7 @@ public class ModeloService {
 
 	private void validarCamposObrigatorios(Modelo novoModelo) throws CampoInvalidoException {
 		String mensagemValidacao = "";
-
+		mensagemValidacao += validarCamposObrigatorios(novoModelo.getNome(), "nome");
 		mensagemValidacao += validarCampoDouble(novoModelo.getCusto(), "custo");
 		mensagemValidacao += validarCampoDouble(novoModelo.getValorVenda(), "valor_venda");
 
@@ -38,6 +38,12 @@ public class ModeloService {
 	
 	private String validarCampoDouble(Double valorCampo, String nomeCampo) {
 		if (valorCampo == null) {
+			return "Informe o " + nomeCampo + " \n";
+		}
+		return "";
+	}
+	private String validarCamposObrigatorios(String valorCampo, String nomeCampo) {
+		if (valorCampo == null || valorCampo.trim().isEmpty()) {
 			return "Informe o " + nomeCampo + " \n";
 		}
 		return "";

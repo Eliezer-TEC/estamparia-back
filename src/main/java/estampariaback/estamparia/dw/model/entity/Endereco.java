@@ -5,15 +5,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "endereco")
-@NoArgsConstructor
 public class Endereco {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Integer id;
 	private String rua;
 	private String numero;
@@ -21,6 +19,10 @@ public class Endereco {
 	private String cep;
 	private String cidade;
 	private String estado;
+	
+//	@JsonBackReference
+//    @OneToMany(mappedBy = "pessoa")
+//    private List<Pessoa> pessoas;
 	
 	public Endereco(Integer id, String rua, String numero, String bairro, String cep, String cidade, String estado) {
 		super();
@@ -77,8 +79,4 @@ public class Endereco {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
-	
-
-	
 }
