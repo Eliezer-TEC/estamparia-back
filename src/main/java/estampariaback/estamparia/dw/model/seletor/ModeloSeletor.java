@@ -15,6 +15,7 @@ public class ModeloSeletor {
 	private LocalDate dataFimVigenciaMaximo;
 	private LocalDate dataCadastroMinimo;
 	private LocalDate dataCadastroMaximo;
+	private String nome;
 
 
 	public ModeloSeletor() {
@@ -111,6 +112,18 @@ public class ModeloSeletor {
 	public void setDataCadastroMaximo(LocalDate dataCadastroMaximo) {
 		this.dataCadastroMaximo = dataCadastroMaximo;
 	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	
 
 
 }

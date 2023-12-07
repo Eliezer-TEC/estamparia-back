@@ -26,7 +26,7 @@ public class ModeloService {
 
 	private void validarCamposObrigatorios(Modelo novoModelo) throws CampoInvalidoException {
 		String mensagemValidacao = "";
-
+		
 		mensagemValidacao += validarCampoDouble(novoModelo.getCusto(), "custo");
 		mensagemValidacao += validarCampoDouble(novoModelo.getValorVenda(), "valor_venda");
 
