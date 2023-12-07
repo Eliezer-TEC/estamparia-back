@@ -19,9 +19,7 @@ public class Pessoa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_endereco")
-	private Endereco endereco;
+
 	private String nome;
 	private String cpf;
 
@@ -38,11 +36,10 @@ public class Pessoa {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pessoa(Integer id, Endereco endereco, String nome, String cpf, Date dtNasc, String email, String ddd,
-			String telefone, String senha, Boolean funcionario) {
+	public Pessoa(Integer id, String nome, String cpf, Date dtNasc, String email, String ddd, String telefone,
+			String senha, Boolean funcionario) {
 		super();
 		this.id = id;
-		this.endereco = endereco;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dtNasc = dtNasc;
@@ -59,14 +56,6 @@ public class Pessoa {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
 	}
 
 	public String getNome() {
@@ -132,7 +121,7 @@ public class Pessoa {
 	public void setFuncionario(Boolean funcionario) {
 		this.funcionario = funcionario;
 	}
-	
+
 	
 
 	
