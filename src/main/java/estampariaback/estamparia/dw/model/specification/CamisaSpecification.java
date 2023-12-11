@@ -27,7 +27,7 @@ public class CamisaSpecification {
 			} 
 			if (seletor.getEstampa() != null) {
 				// WHERE peso <= max
-				predicates.add(cb.lessThanOrEqualTo(root.get("cor"), seletor.getEstampa()));
+				predicates.add(cb.lessThanOrEqualTo(root.get("estampa"), seletor.getEstampa()));
 			}
 
 			

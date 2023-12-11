@@ -4,34 +4,13 @@ package estampariaback.estamparia.dw.model.seletor;
 public class PedidoSeletor {
 
 	private Integer id;
-	private int idPessoa;
-	private int idCamisa;
-	private int idEndereco;
-	private Double totalMinimo;
-	private Double totalMaximo;
+	private String nome;
+	private Double total;
 	private String status;
-
-	private Double quantidadeMinima;
-	private Double quantidadeMaxima;
+	private Integer quantidade;
 
 	public PedidoSeletor() {
 		super();
-	}
-
-	public Double getTotalMinimo() {
-		return totalMinimo;
-	}
-
-	public void setTotalMinimo(Double totalMinimo) {
-		this.totalMinimo = totalMinimo;
-	}
-
-	public Double getTotalMaximo() {
-		return totalMaximo;
-	}
-
-	public void setTotalMaximo(Double totalMaximo) {
-		this.totalMaximo = totalMaximo;
 	}
 
 	public Integer getId() {
@@ -42,31 +21,21 @@ public class PedidoSeletor {
 		this.id = id;
 	}
 
-	public int getIdPessoa() {
-		return idPessoa;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setIdPessoa(int idPessoa) {
-		this.idPessoa = idPessoa;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public int getIdCamisa() {
-		return idCamisa;
+	public Double getTotal() {
+		return total;
 	}
 
-	public void setIdCamisa(int idCamisa) {
-		this.idCamisa = idCamisa;
+	public void setTotal(Double total) {
+		this.total = total;
 	}
-
-	public int getIdEndereco() {
-		return idEndereco;
-	}
-
-	public void setIdEndereco(int idEndereco) {
-		this.idEndereco = idEndereco;
-	}
-
-
 
 	public String getStatus() {
 		return status;
@@ -76,20 +45,15 @@ public class PedidoSeletor {
 		this.status = status;
 	}
 
-	public Double getQuantidadeMinima() {
-		return quantidadeMinima;
+	public Integer getQuantidade() {
+		return quantidade;
 	}
 
-	public void setQuantidadeMinima(Double quantidadeMinima) {
-		this.quantidadeMinima = quantidadeMinima;
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
 	}
 
-	public Double getQuantidadeMaxima() {
-		return quantidadeMaxima;
-	}
+	
 
-	public void setQuantidadeMaxima(Double quantidadeMaxima) {
-		this.quantidadeMaxima = quantidadeMaxima;
-	}
-
+	
 }

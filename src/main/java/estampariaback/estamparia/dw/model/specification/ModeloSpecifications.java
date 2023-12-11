@@ -17,54 +17,19 @@ public class ModeloSpecifications {
 			if (seletor.getId() != null) {
 				predicates.add(cb.equal(root.get("id"), seletor.getId()));
 			}
-
-			if (seletor.getValorVendaMinimo() != null) {
-				predicates.add(cb.equal(root.get("valorVendaMinimo"), seletor.getValorVendaMinimo()));
+			
+			if (seletor.getNome() != null && !seletor.getNome().isEmpty()) {
+				predicates.add(cb.like(cb.lower(root.get("nome")), "%" + seletor.getNome().toLowerCase() + "%"));
 			}
 
-			if (seletor.getValorVendaMinimo() != null && seletor.getValorVendaMaximo() != null) {
-				// WHERE peso BETWEEN min AND max
-				predicates.add(
-						cb.between(root.get("peso"), seletor.getValorVendaMinimo(), seletor.getValorVendaMaximo()));
-			} else if (seletor.getValorVendaMinimo() != null) {
-				predicates.add(cb.greaterThanOrEqualTo(root.get("valor"), seletor.getValorVendaMinimo()));
-			} else if (seletor.getValorVendaMaximo() != null) {
-				predicates.add(cb.lessThanOrEqualTo(root.get("valor"), seletor.getValorVendaMaximo()));
+			if (seletor.getValorVenda() != null) {
+				predicates.add(cb.equal(root.get("valorVenda"), seletor.getValorVenda()));
 			}
 
-			if (seletor.getCustoMinimo() != null && seletor.getCustoMaximo() != null) {
-				// WHERE peso BETWEEN min AND max
-				predicates.add(cb.between(root.get("custo"), seletor.getCustoMinimo(), seletor.getCustoMaximo()));
-			} else if (seletor.getCustoMinimo() != null) {
-				predicates.add(cb.greaterThanOrEqualTo(root.get("custo"), seletor.getCustoMinimo()));
-			} else if (seletor.getCustoMaximo() != null) {
-				predicates.add(cb.lessThanOrEqualTo(root.get("custo"), seletor.getCustoMaximo()));
+			if (seletor.getCusto() != null) {
+				predicates.add(cb.equal(root.get("custo"), seletor.getCusto()));
 			}
-
-			if (seletor.getDataCadastroMinimo() != null && seletor.getDataCadastroMaximo() != null) {
-				// WHERE dataCadastro BETWEEN min AND max
-				predicates.add(cb.between(root.get("dataCadastro"), seletor.getDataCadastroMinimo(),
-						seletor.getDataCadastroMaximo()));
-			} else if (seletor.getDataCadastroMinimo() != null) {
-				// WHERE dataCadastro >= min
-				predicates.add(cb.greaterThanOrEqualTo(root.get("dataCadastro"), seletor.getDataCadastroMinimo()));
-			} else if (seletor.getDataCadastroMaximo() != null) {
-				// WHERE dataCadastro <= max
-				predicates.add(cb.lessThanOrEqualTo(root.get("dataCadastro"), seletor.getDataCadastroMaximo()));
-			}
-
-			if (seletor.getDataFimVigenciaMinimo() != null && seletor.getDataFimVigenciaMaximo() != null) {
-				// WHERE dataCadastro BETWEEN min AND max
-				predicates.add(cb.between(root.get("dataCadastro"), seletor.getDataFimVigenciaMinimo(),
-						seletor.getDataFimVigenciaMaximo()));
-			} else if (seletor.getDataFimVigenciaMinimo() != null) {
-				// WHERE dataCadastro >= min
-				predicates
-						.add(cb.greaterThanOrEqualTo(root.get("dataFimVigencia"), seletor.getDataFimVigenciaMinimo()));
-			} else if (seletor.getDataFimVigenciaMaximo() != null) {
-				// WHERE dataCadastro <= max
-				predicates.add(cb.lessThanOrEqualTo(root.get("dataFimVigencia"), seletor.getDataFimVigenciaMaximo()));
-			}
+			
 
 			return cb.and(predicates.toArray(new Predicate[0]));
 		};

@@ -50,6 +50,7 @@ public class ModeloController {
 		return modeloService.listarComSeletor(seletor);
 	}
     
+    
  	@GetMapping(path = "/{id}")
  	public Modelo consultarPorId(@PathVariable Integer id) {
  		return modeloService.consultarPorId(id.longValue());
