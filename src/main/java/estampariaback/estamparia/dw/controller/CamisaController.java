@@ -88,10 +88,10 @@ public class CamisaController {
 		return camisaService.listarComSeletor(seletor);
 	}
 	
-	@GetMapping("/{id}")
-	public Camisa consultarPorId(@PathVariable Integer id) {   //PATH VARIABLE PERMITE PESQUISAR NA URL DIRETO COM O NÚMERO
-		return camisaService.consultarPorId(id.longValue());
-	}
+//	@GetMapping("/{id}")
+//	public Camisa consultarPorId(@PathVariable Integer id) {   //PATH VARIABLE PERMITE PESQUISAR NA URL DIRETO COM O NÚMERO
+//		return camisaService.consultarPorId(id.longValue());
+//	}
 	
 	@PostMapping
     public ResponseEntity<String> uploadArquivo(@RequestParam("file") MultipartFile file) {
