@@ -1,5 +1,6 @@
 package estampariaback.estamparia.dw.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -7,6 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
 import estampariaback.estamparia.dw.model.entity.Camisa;
@@ -86,5 +88,31 @@ public class CamisaService {
 		Specification<Camisa> specification = CamisaSpecification.comFiltros(seletor);
 		return camisaRepository.findAll(specification);
 	}
+
+	 public void salvarArquivo(MultipartFile file) {
+	        try {
+	            Camisa arquivo = new Camisa();
+	            arquivo.setNomeArquivo(file.getOriginalFilename());
+	            arquivo.setEstampa(file.getBytes());
+	            camisaRepository.save(arquivo);
+	        } catch (IOException e) {
+	            // Lidar com exceções
+	        }
+	    }
+	 public Integer converterLongParaInteger(Long id) {
+		    if (id != null) {
+		        return id.intValue();
+		    }
+		    return null; 
+		}
+
+	 public byte[] carregarArquivo(Integer id) {
+		 Long idLong = id != null ? id.longValue() : null;
+	        return camisaRepository.findById(idLong)
+	                .map(Camisa::getEstampa)
+	                .orElse(null);
+	    }
+	 
+	 
 
 }

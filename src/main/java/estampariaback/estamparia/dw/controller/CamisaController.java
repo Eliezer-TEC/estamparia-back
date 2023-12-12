@@ -3,6 +3,9 @@ package estampariaback.estamparia.dw.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -89,5 +92,25 @@ public class CamisaController {
 	public Camisa consultarPorId(@PathVariable Integer id) {   //PATH VARIABLE PERMITE PESQUISAR NA URL DIRETO COM O NÚMERO
 		return camisaService.consultarPorId(id.longValue());
 	}
+	
+	@PostMapping
+    public ResponseEntity<String> uploadArquivo(@RequestParam("file") MultipartFile file) {
+        camisaService.salvarArquivo(file);
+        return ResponseEntity.ok("Arquivo salvo com sucesso!");
+    }
+	
+	 @GetMapping("/{id}")
+	    public ResponseEntity<byte[]> downloadArquivo(@PathVariable Integer id) {
+	        byte[] camisa = camisaService.carregarArquivo(id);
+	        
+	        HttpHeaders headers = new HttpHeaders();
+	        headers.setContentDispositionFormData("attachment", "estampa.bin");
+	        
+	        return ResponseEntity.ok()
+	                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=camisa.bin")
+	                .body(camisa);
+	    }
+	
+	
 
 }
