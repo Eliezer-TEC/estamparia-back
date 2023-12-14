@@ -1,6 +1,7 @@
 package estampariaback.estamparia.dw.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import org.springframework.http.HttpHeaders;
@@ -36,6 +37,7 @@ public class CamisaController {
 	@PostMapping("/cadastrar")
 	public Camisa salvar(Camisa novaCamisa, @RequestParam("foto") MultipartFile foto) throws CampoInvalidoException {
 		try {
+			InputStream inputStream = foto.getInputStream();
 			novaCamisa.setEstampa(foto.getBytes());
 			novaCamisa.setNomeArquivo(foto.getName());
 		} catch (IOException e) {

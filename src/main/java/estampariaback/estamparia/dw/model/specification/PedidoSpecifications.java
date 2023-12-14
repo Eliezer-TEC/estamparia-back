@@ -11,14 +11,13 @@ import jakarta.persistence.criteria.Predicate;
 
 public class PedidoSpecifications {
 
-    public static Specification<Pedido> comFiltros(PedidoSeletor seletor) {
-        return (root, query, cb) -> {
-            List<Predicate> predicates = new ArrayList<>();
+	public static Specification<Pedido> comFiltros(PedidoSeletor seletor) {
+		return (root, query, cb) -> {
+			List<Predicate> predicates = new ArrayList<>();
 
-            if (seletor.getId() != null) {
-                predicates.add(cb.equal(root.get("id"), seletor.getId()));
-            }
-
+			if (seletor.getId() != null) {
+				predicates.add(cb.equal(root.get("id"), seletor.getId()));
+			}
 
 			if (seletor.getNome() != null && !seletor.getNome().isEmpty()) {
 				predicates.add(cb.like(cb.lower(root.get("nome")), "%" + seletor.getNome().toLowerCase() + "%"));
@@ -29,9 +28,22 @@ public class PedidoSpecifications {
 			}
 
 			if (seletor.getQuantidade() != null) {
-                predicates.add(cb.equal(root.get("quantidade"), seletor.getQuantidade()));
-            }
-            return cb.and(predicates.toArray(new Predicate[0]));
-        };
-    }
+				predicates.add(cb.equal(root.get("quantidade"), seletor.getQuantidade()));
+			}
+
+			if (seletor.getTamanho() != null && seletor.getTamanho() != null) {
+				predicates.add(cb.like(cb.lower(root.get("nome")), "%" + seletor.getNome().toLowerCase() + "%"));
+			}
+
+			if (seletor.getCor() != null && !seletor.getCor().isEmpty()) {
+				predicates.add(cb.like(cb.lower(root.get("nome")), "%" + seletor.getNome().toLowerCase() + "%"));
+
+			}
+			if (seletor.getEstampa() != null) {
+				predicates.add(cb.equal(root.get("estampa"), seletor.getEstampa()));
+			}
+
+			return cb.and(predicates.toArray(new Predicate[0]));
+		};
+	}
 }
