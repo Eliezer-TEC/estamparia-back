@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "pedido")
-@NoArgsConstructor
 public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +20,6 @@ public class Pedido {
 	@Column(name = "ID_CAMISA")
 	private int idCamisa;
 
-	@Column(name = "ID_ENDERECO")
-	private int idEndereco;
 	private double total;
 
 	@Column(name = "STATUS_PEDIDO")
@@ -35,12 +32,11 @@ public class Pedido {
 		super();
 	}
 
-	public Pedido(Integer id, int idPessoa, int idCamisa, int idEndereco, double total, String status, Double quantidade) {
+	public Pedido(Integer id, int idPessoa, int idCamisa,  double total, String status, Double quantidade) {
 		super();
 		this.id = id;
 		this.idPessoa = idPessoa;
 		this.idCamisa = idCamisa;
-		this.idEndereco = idEndereco;
 		this.total = total;
 		this.status = status;
 		this.quantidade = quantidade;
@@ -70,13 +66,6 @@ public class Pedido {
 		this.idCamisa = idCamisa;
 	}
 
-	public int getIdEndereco() {
-		return idEndereco;
-	}
-
-	public void setIdEndereco(int idEndereco) {
-		this.idEndereco = idEndereco;
-	}
 
 	public double getTotal() {
 		return total;

@@ -28,7 +28,7 @@ public class PedidoService {
     	String mensagemValidacao = "";
 
 		mensagemValidacao += validarCamposObrigatorios(novoPedido.getStatus(), "status");
-		mensagemValidacao += validarCampoDouble(novoPedido.getTotal(), "status");
+		mensagemValidacao += validarCampoDouble(novoPedido.getTotal(), "total");
 
 
 		if (!mensagemValidacao.isEmpty()) {

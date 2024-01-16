@@ -7,6 +7,10 @@ import java.time.LocalDate;
 public class ModeloSeletor {
 
 	private Integer id;
+	private String nome;
+	private Double custo;
+	private Double valorVenda;
+
 	private Double valorVendaMinimo;
 	private Double valorVendaMaximo;
 	private Double custoMinimo;
@@ -15,64 +19,34 @@ public class ModeloSeletor {
 	private LocalDate dataFimVigenciaMaximo;
 	private LocalDate dataCadastroMinimo;
 	private LocalDate dataCadastroMaximo;
-	private String nome;
-
 
 	public ModeloSeletor() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-
 	public Integer getId() {
 		return id;
 	}
-
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
-	public Double getValorVendaMinimo() {
-		return valorVendaMinimo;
+	public String getNome() {
+		return nome;
 	}
-
-
-	public void setValorVendaMinimo(Double valorVendaMinimo) {
-		this.valorVendaMinimo = valorVendaMinimo;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-
-
-	public Double getValorVendaMaximo() {
-		return valorVendaMaximo;
+	public Double getCusto() {
+		return custo;
 	}
-
-
-	public void setValorVendaMaximo(Double valorVendaMaximo) {
-		this.valorVendaMaximo = valorVendaMaximo;
+	public void setCusto(Double custo) {
+		this.custo = custo;
 	}
-
-
-	public Double getCustoMinimo() {
-		return custoMinimo;
+	public Double getValorVenda() {
+		return valorVenda;
 	}
-
-
-	public void setCustoMinimo(Double custoMinimo) {
-		this.custoMinimo = custoMinimo;
+	public void setValorVenda(Double valorVenda) {
+		this.valorVenda = valorVenda;
 	}
-
-
-	public Double getCustoMaximo() {
-		return custoMaximo;
-	}
-
-
-	public void setCustoMaximo(Double custoMaximo) {
-		this.custoMaximo = custoMaximo;
-	}
-
 
 	public LocalDate getDataFimVigenciaMinimo() {
 		return dataFimVigenciaMinimo;
@@ -112,18 +86,5 @@ public class ModeloSeletor {
 	public void setDataCadastroMaximo(LocalDate dataCadastroMaximo) {
 		this.dataCadastroMaximo = dataCadastroMaximo;
 	}
-
-
-	public String getNome() {
-		return nome;
-	}
-
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 	
-	
-
-
 }

@@ -19,42 +19,18 @@ public class PedidoSpecifications {
                 predicates.add(cb.equal(root.get("id"), seletor.getId()));
             }
 
-            if (seletor.getIdPessoa() != 0) {
-                predicates.add(cb.equal(root.get("idPessoa"), seletor.getIdPessoa()));
-            }
 
-            if (seletor.getIdCamisa() != 0) {
-                predicates.add(cb.equal(root.get("idCamisa"), seletor.getIdCamisa()));
-            }
+			if (seletor.getNome() != null && !seletor.getNome().isEmpty()) {
+				predicates.add(cb.like(cb.lower(root.get("nome")), "%" + seletor.getNome().toLowerCase() + "%"));
+			}
 
-            if (seletor.getIdEndereco() != 0) {
-                predicates.add(cb.equal(root.get("idEndereco"), seletor.getIdEndereco()));
-            }
+			if (seletor.getTotal() != null) {
+				predicates.add(cb.equal(root.get("total"), seletor.getTotal()));
+			}
 
-            if(seletor.getTotalMinimo() != null && seletor.getTotalMaximo() != null) {
-            	//WHERE peso BETWEEN min AND max
-            	predicates.add(cb.between(root.get("total"), seletor.getTotalMinimo(), 
-            			seletor.getTotalMaximo()));
-            } else if(seletor.getTotalMinimo() != null) {
-            	predicates.add(cb.greaterThanOrEqualTo(root.get("total"), seletor.getTotalMinimo()));
-            } else if(seletor.getTotalMaximo() != null) {
-            	predicates.add(cb.lessThanOrEqualTo(root.get("total"), seletor.getTotalMaximo()));
+			if (seletor.getQuantidade() != null) {
+                predicates.add(cb.equal(root.get("quantidade"), seletor.getQuantidade()));
             }
-
-            if (seletor.getStatus() != null && !seletor.getStatus().isEmpty()) {
-                predicates.add(cb.equal(root.get("status"), seletor.getStatus()));
-            }
-
-            if(seletor.getQuantidadeMinima() != null && seletor.getQuantidadeMaxima() != null) {
-            	//WHERE peso BETWEEN min AND max
-            	predicates.add(cb.between(root.get("peso"), seletor.getQuantidadeMinima(), 
-            			seletor.getQuantidadeMaxima()));
-            } else if(seletor.getQuantidadeMinima() != null) {
-            	predicates.add(cb.greaterThanOrEqualTo(root.get("valor"), seletor.getQuantidadeMinima()));
-            } else if(seletor.getQuantidadeMaxima() != null) {
-            	predicates.add(cb.lessThanOrEqualTo(root.get("valor"), seletor.getQuantidadeMaxima()));
-            }
-
             return cb.and(predicates.toArray(new Predicate[0]));
         };
     }

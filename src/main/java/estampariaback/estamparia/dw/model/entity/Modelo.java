@@ -8,20 +8,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "modelo")
-@NoArgsConstructor
 public class Modelo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;	
+
+	private Integer id;
+	@Column(name = "VALOR_VENDA")
 	private Double valorVenda;
 	private Double custo;
 	private String nome;
-	
+
 	@Column(name = "DT_CADASTRO")
 	private LocalDate dataCadastro;
 	@Column(name = "DT_FIM_VIGENCIA")
@@ -31,11 +31,13 @@ public class Modelo {
 		super();
 	}
 
-	public Modelo(Integer id, Double valorVenda, Double custo, LocalDate dataCadastro, LocalDate dataFimVigencia) {
+	public Modelo(Integer id, Double valorVenda, Double custo, String nome, LocalDate dataCadastro,
+			LocalDate dataFimVigencia) {
 		super();
 		this.id = id;
 		this.valorVenda = valorVenda;
 		this.custo = custo;
+		this.nome = nome;
 		this.dataCadastro = dataCadastro;
 		this.dataFimVigencia = dataFimVigencia;
 	}
@@ -64,6 +66,14 @@ public class Modelo {
 		this.custo = custo;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public LocalDate getDataCadastro() {
 		return dataCadastro;
 	}
@@ -87,7 +97,7 @@ public class Modelo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	
 }
 
