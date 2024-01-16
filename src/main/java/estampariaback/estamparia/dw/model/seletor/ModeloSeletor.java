@@ -10,7 +10,16 @@ public class ModeloSeletor {
 	private String nome;
 	private Double custo;
 	private Double valorVenda;
-	
+
+	private Double valorVendaMinimo;
+	private Double valorVendaMaximo;
+	private Double custoMinimo;
+	private Double custoMaximo;
+	private LocalDate dataFimVigenciaMinimo;
+	private LocalDate dataFimVigenciaMaximo;
+	private LocalDate dataCadastroMinimo;
+	private LocalDate dataCadastroMaximo;
+
 	public ModeloSeletor() {
 		super();
 	}
@@ -39,6 +48,43 @@ public class ModeloSeletor {
 		this.valorVenda = valorVenda;
 	}
 
-	
+	public LocalDate getDataFimVigenciaMinimo() {
+		return dataFimVigenciaMinimo;
+	}
+
+
+	public void setDataFimVigenciaMinimo(LocalDate dataFimVigenciaMinimo) {
+		this.dataFimVigenciaMinimo = dataFimVigenciaMinimo;
+	}
+
+
+	public LocalDate getDataFimVigenciaMaximo() {
+		return dataFimVigenciaMaximo;
+	}
+
+
+	public void setDataFimVigenciaMaximo(LocalDate dataFimVigenciaMaximo) {
+		this.dataFimVigenciaMaximo = dataFimVigenciaMaximo;
+	}
+
+
+	public LocalDate getDataCadastroMinimo() {
+		return dataCadastroMinimo;
+	}
+
+
+	public void setDataCadastroMinimo(LocalDate dataCadastroMinimo) {
+		this.dataCadastroMinimo = dataCadastroMinimo;
+	}
+
+
+	public LocalDate getDataCadastroMaximo() {
+		return dataCadastroMaximo;
+	}
+
+
+	public void setDataCadastroMaximo(LocalDate dataCadastroMaximo) {
+		this.dataCadastroMaximo = dataCadastroMaximo;
+	}
 	
 }

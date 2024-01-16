@@ -15,11 +15,13 @@ public class Modelo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Integer id;
 	@Column(name = "VALOR_VENDA")
 	private Double valorVenda;
 	private Double custo;
 	private String nome;
+
 	@Column(name = "DT_CADASTRO")
 	private LocalDate dataCadastro;
 	@Column(name = "DT_FIM_VIGENCIA")
@@ -88,5 +90,14 @@ public class Modelo {
 		this.dataFimVigencia = dataFimVigencia;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	
 }
+

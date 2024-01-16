@@ -35,7 +35,6 @@ public class ModeloService {
 		}
 	}
 	
-	
 	private String validarCampoDouble(Double valorCampo, String nomeCampo) {
 		if (valorCampo == null) {
 			return "Informe o " + nomeCampo + " \n";
