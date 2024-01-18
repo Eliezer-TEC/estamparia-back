@@ -32,10 +32,6 @@ public class Camisa {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-
-
 	public Camisa(Integer id, String tamanho, String cor, byte[] estampa, Integer idModelo, String nomeArquivo) {
 		super();
 		this.id = id;
