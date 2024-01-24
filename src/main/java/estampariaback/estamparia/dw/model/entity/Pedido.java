@@ -18,9 +18,6 @@ public class Pedido {
 	@Column(name = "ID_PESSOA")
 	private int idPessoa;
 
-	@Column(name = "ID_CAMISA")
-	private int idCamisa;
-
 	private double total;
 
 	@Column(name = "STATUS_PEDIDO")
@@ -47,12 +44,11 @@ public class Pedido {
 		super();
 	}
 
-	public Pedido(Integer id, int idPessoa, int idCamisa, double total, String status, Double quantidade,
-			String tamanho, String cor, byte[] estampa, Integer idModelo, String nomeArquivo) {
+	public Pedido(Integer id, int idPessoa, double total, String status, Double quantidade, String tamanho, String cor,
+			byte[] estampa, Integer idModelo, String nomeArquivo) {
 		super();
 		this.id = id;
 		this.idPessoa = idPessoa;
-		this.idCamisa = idCamisa;
 		this.total = total;
 		this.status = status;
 		this.quantidade = quantidade;
@@ -77,14 +73,6 @@ public class Pedido {
 
 	public void setIdPessoa(int idPessoa) {
 		this.idPessoa = idPessoa;
-	}
-
-	public int getIdCamisa() {
-		return idCamisa;
-	}
-
-	public void setIdCamisa(int idCamisa) {
-		this.idCamisa = idCamisa;
 	}
 
 	public double getTotal() {
@@ -150,5 +138,6 @@ public class Pedido {
 	public void setNomeArquivo(String nomeArquivo) {
 		this.nomeArquivo = nomeArquivo;
 	}
-
+	
+	
 }
