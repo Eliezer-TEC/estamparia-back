@@ -1,7 +1,11 @@
 package estampariaback.estamparia.dw.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,6 +37,7 @@ public class CamisaController {
 	@PostMapping("/cadastrar")
 	public Camisa salvar(Camisa novaCamisa, @RequestParam("foto") MultipartFile foto) throws CampoInvalidoException {
 		try {
+			InputStream inputStream = foto.getInputStream();
 			novaCamisa.setEstampa(foto.getBytes());
 			novaCamisa.setNomeArquivo(foto.getName());
 		} catch (IOException e) {
@@ -85,9 +90,29 @@ public class CamisaController {
 		return camisaService.listarComSeletor(seletor);
 	}
 	
-	@GetMapping("/{id}")
-	public Camisa consultarPorId(@PathVariable Integer id) {   //PATH VARIABLE PERMITE PESQUISAR NA URL DIRETO COM O NÚMERO
-		return camisaService.consultarPorId(id.longValue());
-	}
+//	@GetMapping("/{id}")
+//	public Camisa consultarPorId(@PathVariable Integer id) {   //PATH VARIABLE PERMITE PESQUISAR NA URL DIRETO COM O NÚMERO
+//		return camisaService.consultarPorId(id.longValue());
+//	}
+	
+	@PostMapping
+    public ResponseEntity<String> uploadArquivo(@RequestParam("file") MultipartFile file) {
+        camisaService.salvarArquivo(file);
+        return ResponseEntity.ok("Arquivo salvo com sucesso!");
+    }
+	
+	 @GetMapping("/{id}")
+	    public ResponseEntity<byte[]> downloadArquivo(@PathVariable Integer id) {
+	        byte[] camisa = camisaService.carregarArquivo(id);
+	        
+	        HttpHeaders headers = new HttpHeaders();
+	        headers.setContentDispositionFormData("attachment", "estampa.bin");
+	        
+	        return ResponseEntity.ok()
+	                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=camisa.bin")
+	                .body(camisa);
+	    }
+	
+	
 
 }

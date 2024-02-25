@@ -8,6 +8,9 @@ public class PedidoSeletor {
 	private Double total;
 	private String status;
 	private Integer quantidade;
+	private String cor;
+	private String tamanho;
+	private byte[] estampa;
 
 	public PedidoSeletor() {
 		super();
@@ -52,6 +55,33 @@ public class PedidoSeletor {
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
+
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
+
+	public String getTamanho() {
+		return tamanho;
+	}
+
+	public void setTamanho(String tamanho) {
+		this.tamanho = tamanho;
+	}
+
+	public byte[] getEstampa() {
+		return estampa;
+	}
+
+	public void setEstampa(byte[] estampa) {
+		this.estampa = estampa;
+	}
+	
+	
+	
 
 	
 

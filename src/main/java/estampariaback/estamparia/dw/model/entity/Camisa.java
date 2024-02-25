@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +18,7 @@ public class Camisa {
 	private Integer id;
 	private String tamanho;
 	private String cor;
+	@Lob
 	private byte[] estampa;
 	private Integer idModelo;
 	@Column(name = "NOME_ARQUIVO")
@@ -29,10 +31,6 @@ public class Camisa {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	
-
-
 
 	public Camisa(Integer id, String tamanho, String cor, byte[] estampa, Integer idModelo, String nomeArquivo) {
 		super();

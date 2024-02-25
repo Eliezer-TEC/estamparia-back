@@ -27,8 +27,9 @@ public class PedidoService {
     private void validarCamposObrigatorios(Pedido novoPedido) throws CampoInvalidoException {
     	String mensagemValidacao = "";
 
-		mensagemValidacao += validarCamposObrigatorios(novoPedido.getStatus(), "status");
+		mensagemValidacao += validarCamposString(novoPedido.getStatus(), "status");
 		mensagemValidacao += validarCampoDouble(novoPedido.getTotal(), "total");
+		mensagemValidacao += validarCampoDouble(novoPedido.getQuantidade(), "quantidade");
 
 
 		if (!mensagemValidacao.isEmpty()) {
@@ -37,7 +38,7 @@ public class PedidoService {
 	}
 
     
-    private String validarCamposObrigatorios(String valorCampo, String nomeCampo) {
+    private String validarCamposString(String valorCampo, String nomeCampo) {
 		if (valorCampo == null || valorCampo.trim().isEmpty()) {
 			return "Informe o " + nomeCampo + " \n";
 		}

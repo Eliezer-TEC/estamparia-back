@@ -1,11 +1,15 @@
 package estampariaback.estamparia.dw.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import estampariaback.estamparia.dw.exception.CampoInvalidoException;
+import estampariaback.estamparia.dw.model.entity.Camisa;
 import estampariaback.estamparia.dw.model.entity.Pedido;
 import estampariaback.estamparia.dw.model.seletor.PedidoSeletor;
 import estampariaback.estamparia.dw.service.PedidoService;
@@ -19,7 +23,14 @@ public class PedidoController {
     private PedidoService pedidoService;
 
     @PostMapping("/cadastrar")
-    public Pedido salvar(@RequestBody Pedido novoPedido) throws CampoInvalidoException {
+    public Pedido salvar(Pedido novoPedido, @RequestParam("estampa") MultipartFile estampa) throws CampoInvalidoException, IOException {
+    	// Aqui você pode acessar o byte[] da imagem usando foto.getBytes()
+        byte[] estampaBytes = estampa.getBytes();
+
+        // Faça o que for necessário com o byte[], por exemplo, atribuir ao pedido
+        novoPedido.setEstampa(estampaBytes);
+
+        // Continue com o resto da lógica de salvamento
         return pedidoService.inserir(novoPedido);
     }
 
